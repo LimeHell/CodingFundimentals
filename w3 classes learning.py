@@ -24,7 +24,9 @@ for i in People:
 
 Jobs = []
 class Job:
-    def __init__(self, Salery, QualificationReq, PossibleEmployees, Description):
+    def __init__(self, JobName, Salery, QualificationReq, PossibleEmployees, Description):
+        class JobName(Person):
+            pass
         self.Salery = Salery
         self.QualificationReq = QualificationReq
         self.PossibleEmployees = PossibleEmployees
