@@ -1,15 +1,23 @@
 class Controller:
     def __init__(self, array, properties):
         self.array = array
+        self.properties = properties
     
     def PrintEach(self):
-        for i in self.array:
-            print(i)
+        for element in self.array:
+            print(element)
+
+    def PrintProperties(self):
+        for element in self.array:
+            ElementProperties = []
+            for property in self.properties:
+                ElementProperties.append(element.property)
+            print(ElementProperties.join(" "))
 
 # Have an array for all people
 People = []
 PeopleProperties = ["firstname", "lastname", "middlename"]
-PC = Controller(People)
+PC = Controller(People, PeopleProperties)
 Judes = []
 JC = Controller(Judes)
 
