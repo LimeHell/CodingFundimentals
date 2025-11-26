@@ -1,3 +1,4 @@
+# this is big ol file so i can learn what classes do and how far i can strech them
 #Array elemnt and property printer
 class Controller:
     def __init__(self, Array, Properties):
