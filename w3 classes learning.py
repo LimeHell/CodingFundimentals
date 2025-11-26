@@ -1,3 +1,4 @@
+import inspect
 # this is big ol file so i can learn what classes do and how far i can strech them
 #Array elemnt and property printer
 class Controller:
@@ -71,7 +72,10 @@ Jobs = []
 class Job:
     def __init__(self, JobName, Salery, QualificationReq, PossibleEmployees, Description):
         class JobName(Person):
-            
+            def __init__(self, FirstName, LastName):
+                super().__init__(FirstName, LastName)
+                if len(inspect.getmembers(JobName)):
+                    del self
             pass
         self.Salery = Salery
         self.QualificationReq = QualificationReq
