@@ -69,8 +69,4 @@ class Job:
         self.Description = Description
         Jobs.append(self)
 
-Devops = Job("DevOps", "£5", "Jawline", 7, "Tell people how to do their jobs well")
-
-        
-    
-    
+DevOs = Job("DevOps", "£5", "Jawline", 7, "Tell people how to do their jobs well")
