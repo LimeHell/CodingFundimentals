@@ -13,6 +13,7 @@ class Controller:
         for Element in self.Array:
             ElementProperties = []
             for Property in self.Properties:
+                print(Element)
                 print(Property)
                 ElementProperties.append(Element.Property)
             print(ElementProperties.join(" "))
@@ -30,6 +31,7 @@ class Person:
         People.append(self)
         self.FirstName = FirstName
         self.LastName = LastName
+        People.append(self)
         if FirstName == "Jude":
             Judes.append(self)
     
