@@ -22,4 +22,17 @@ for i in People:
     print(i)
     print(i.firstname, i.middlename, i.lastname)
 
+Jobs = []
+class Job:
+    def __init__(self, Salery, QualificationReq, PossibleEmployees, Description):
+        self.Salery = Salery
+        self.QualificationReq = QualificationReq
+        self.PossibleEmployees = PossibleEmployees
+        self.Description = Description
+        Jobs.append(self)
 
+Devops = Job("£5", "Jawline", 7, "Tell people how to do their jobs well")
+
+        
+    
+    
