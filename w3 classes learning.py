@@ -1,37 +1,39 @@
+#Array elemnt and property printer
 class Controller:
-    def __init__(self, array, properties):
-        self.array = array
-        self.properties = properties
+    def __init__(self, Array, Properties):
+        self.Array = Array
+        self.Properties = Properties
     
     def PrintEach(self):
-        for element in self.array:
-            print(element)
+        for Element in self.Array:
+            print(Element)
 
     def PrintProperties(self):
-        for element in self.array:
+        for Element in self.Array:
             ElementProperties = []
-            for property in self.properties:
-                ElementProperties.append(element.property)
+            for Property in self.Properties:
+                print(Property)
+                ElementProperties.append(Element.Property)
             print(ElementProperties.join(" "))
 
 # Have an array for all people
 People = []
-PeopleProperties = ["firstname", "lastname", "middlename"]
+PeopleProperties = ["FirstName", "LastName", "MiddleName"]
 PC = Controller(People, PeopleProperties)
 Judes = []
-JC = Controller(Judes)
+JC = Controller(Judes, [])
 
 #Define person
 class Person:
-    def __init__(self, firstname, lastname):
+    def __init__(self, FirstName, LastName):
         People.append(self)
-        self.firstname = firstname
-        self.lastname = lastname
-        if firstname == "Jude":
+        self.FirstName = FirstName
+        self.LastName = LastName
+        if FirstName == "Jude":
             Judes.append(self)
     
     def __str__(self):
-        return f"{self.firstname} {self.lastname} mogs you btw"
+        return f"{self.FirstName} {self.LastName} mogs you btw"
 
 #Some sample people 
 p1 = Person("Jude", "Stone")
@@ -39,17 +41,22 @@ p2 = Person("Jude", "Epic")
 p3 = Person("jawline", "enjoyer")
 
 #adding a middle name to the Judes
-for i in Judes:
-    i.middlename = "Gooza"
-for i in People:
-    print(i.firstname, i.middlename, i.lastname)
+for Jude in Judes:
+    Jude.MiddleName = "Gooza"
+    
+#have a look
+PC.PrintProperties()
 
-# add a middle name for 
-Person.middlename = "Geeeza"
-for i in People:
-    print(i)
-    print(i.firstname, i.middlename, i.lastname)
+# add a middle name property permenatly to the class
+Person.MiddleName = "Geeeza"
+#New person for control
+p4 = Person("Still a", "yeah mate")
 
+#have another look
+PC.PrintEach()
+PC.PrintProperties()
+
+# lets make the job class to make more classes
 Jobs = []
 class Job:
     def __init__(self, JobName, Salery, QualificationReq, PossibleEmployees, Description):
