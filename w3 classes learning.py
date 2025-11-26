@@ -8,7 +8,7 @@ class Controller:
         for Element in self.Array:
             print(Element)
 
-    def PrintProperties(self):
+    def PrintProperties(self): # this is the function i fumbled btw
         for Element in self.Array:
             ElementProperties = []
             for Property in self.Properties:
