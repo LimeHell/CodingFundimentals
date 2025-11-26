@@ -9,18 +9,26 @@ class Controller:
         for Element in self.Array:
             print(Element)
 
-    def PrintProperties(self): # this is the function i fumbled btw
+    def WeakPrintProperties(self): 
         for Element in self.Array:
             ElementProperties = []
             for Property in self.Properties:
-                print(Element)
-                print(Property)
-                ElementProperties.append(Element.Property)
-            print(ElementProperties.join(" "))
-
+                try:
+                    ElementProperties.append(getattr(Element, Property))
+                except:
+                    break
+            print(" ".join(ElementProperties))
+            
+    def StrongPrintProperties(self): 
+        for Element in self.Array:
+            ElementProperties = []
+            for Property in self.Properties:
+                    ElementProperties.append(getattr(Element, Property))
+            print(" ".join(ElementProperties))        
+    
 # Have an array for all people
 People = []
-PeopleProperties = ["FirstName", "LastName", "MiddleName"]
+PeopleProperties = ["FirstName","MiddleName", "LastName"]
 PC = Controller(People, PeopleProperties)
 Judes = []
 JC = Controller(Judes, [])
@@ -31,7 +39,6 @@ class Person:
         People.append(self)
         self.FirstName = FirstName
         self.LastName = LastName
-        People.append(self)
         if FirstName == "Jude":
             Judes.append(self)
     
@@ -48,7 +55,7 @@ for Jude in Judes:
     Jude.MiddleName = "Gooza"
     
 #have a look
-PC.PrintProperties()
+PC.WeakPrintProperties()
 
 # add a middle name property permenatly to the class
 Person.MiddleName = "Geeeza"
@@ -57,7 +64,7 @@ p4 = Person("Still a", "yeah mate")
 
 #have another look
 PC.PrintEach()
-PC.PrintProperties()
+PC.WeakPrintProperties()
 
 # lets make the job class to make more classes
 Jobs = []
