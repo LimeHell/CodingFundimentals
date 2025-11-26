@@ -74,7 +74,7 @@ class Job:
         class JobName(Person):
             def __init__(self, FirstName, LastName):
                 super().__init__(FirstName, LastName)
-                if len(inspect.getmembers(JobName)):
+                if len(inspect.getmembers(JobName)) > QualificationReq:
                     del self
             pass
         self.Salery = Salery
@@ -83,4 +83,6 @@ class Job:
         self.Description = Description
         Jobs.append(self)
 
-DevOs = Job("DevOps", "£5", "Jawline", 7, "Tell people how to do their jobs well")
+DevOpsJob = Job("DevOps", "£5", "Jawline", 7, "Tell people how to do their jobs well")
+
+Devops("Dan", "McMan")
