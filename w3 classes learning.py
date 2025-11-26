@@ -47,7 +47,7 @@ class Person:
         return f"{self.FirstName} {self.LastName} mogs you btw"
 
 #Some sample people 
-p1 = Person("Jude", "Stone")
+p1 = Person("Jude", "Cool")
 p2 = Person("Jude", "Epic")
 p3 = Person("jawline", "enjoyer")
 
