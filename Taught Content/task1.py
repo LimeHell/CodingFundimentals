@@ -1,11 +1,11 @@
 def SearchByAuthor():
     Search = input("What Author do you want?: ")
-    discography = Library.get(Search, "This authour is not apart of the library")
-    print(", ".join(discography))
+    discography = Library.get(Search, [])
+    print(", ".join(discography) or "This author is not apart of the library")
 
 def SearchByBook():
     Search = input("What Book do you want?: ")
-    for k, v in Library.values:
+    for k, v in Library.values():
         if v == Search:
             print(f"{v} was written by {k}") 
             break
@@ -37,18 +37,18 @@ print("2. Search by book")
 print("3. Add an author")
 print("4. Add a book")
 print("5. Exit")
-MMSelection =input("Select option: ")
 
 while True:
-    if MMSelection == 1:
+    MMSelection =input("Select option: ")
+    if MMSelection == "1":
         SearchByAuthor()
-    elif MMSelection == 2:
+    elif MMSelection == "2":
         SearchByBook()
-    elif MMSelection == 3:
+    elif MMSelection == "3":
         AddAnAuthor()
-    elif MMSelection == 4:
+    elif MMSelection == "4":
         AddABook()
-    elif MMSelection == 5:
+    elif MMSelection == "5":
         break
     else:
         print("invalid option")
