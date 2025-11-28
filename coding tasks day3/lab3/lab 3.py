@@ -82,7 +82,14 @@ def Task4():
 
 def Task5():
     ## Task 5 Voewl Counter
-    WordInput = input("Enter a word")
+    while True:
+        try:
+            WordInput = input("Enter a word")
+            str(WordInput)
+            break
+        except:
+            print("thats not a word you mug")
+        
     vowels = 0
     vowellist = ["a", "e", "i", "o", "u"]
     for i in WordInput:
