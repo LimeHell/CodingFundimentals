@@ -5,6 +5,8 @@ def ShowMM():
     print("2. Factorial")
     print("3. Invest")
     print("4. Between limites")
+    print("5. vowel counter")
+    print("6. Exam average")
     print("x. exit")
     
 def Task1():
@@ -79,6 +81,7 @@ def Task4():
     ShowMM()
 
 def Task5():
+    ## Task 5 Voewl Counter
     WordInput = input("Enter a word")
     vowels = 0
     vowellist = ["a", "e", "i", "o", "u"]
@@ -86,7 +89,23 @@ def Task5():
         if i.lower() in vowellist:
             vowels += 1
     print(f"word has {vowels} vowels")
+    print("---------------")
+    ShowMM()
 
+def Task6():
+    ## Task 6 Exam averge
+    Marks = [42, 53, 86]
+    total = 0
+    for i in Marks:
+        total += i
+    average = total / len(Marks)
+    if average >= 65:
+        print("you passed g")
+    else:
+        print("you woined it, look at my lips, you woined it")
+    print("---------------")
+    ShowMM()
+ 
 ShowMM()
 while True:
     mmselect = input("Please select an option")
@@ -98,6 +117,10 @@ while True:
         Task3()
     elif mmselect == "4":
         Task4()
+    elif mmselect == "5":
+        Task5()
+    elif mmselect == "6":
+        Task6()
     elif mmselect == "x":
         break
     else:
