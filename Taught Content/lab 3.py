@@ -72,6 +72,9 @@ def Task4():
             lives -= 1
             print("try again bud, you just lost a life")
             print(f"you now have {lives} lives left")
+        if lives == 0:
+            print("your too bad buckaroo, you lost")
+            break
     print("---------------")
     ShowMM()
 

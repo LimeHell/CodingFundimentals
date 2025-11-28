@@ -88,6 +88,7 @@ class Job:
         self.PossibleEmployees = PossibleEmployees
         self.Description = Description
         Jobs.append(self)
-    def class
 
 DevOpsJob = Job("DevOps", "£5", "Jawline", 7, "Tell people how to do their jobs well")
+
+DevOps("Jude", "Epic")
