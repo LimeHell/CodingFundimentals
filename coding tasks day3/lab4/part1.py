@@ -107,4 +107,10 @@ count = 0
 for age in ages:
     if age >= 16 and age <= 25:
         count += 1
-print(count)
+
+print(count, "16 to 25 year olds")
+
+ages.sort()
+print(ages)
+
+print(count / len(ages) * 100, "% of ppl are 16-25")
