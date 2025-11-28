@@ -78,6 +78,15 @@ def Task4():
     print("---------------")
     ShowMM()
 
+def Task5():
+    WordInput = input("Enter a word")
+    vowels = 0
+    vowellist = ["a", "e", "i", "o", "u"]
+    for i in WordInput:
+        if i.lower() in vowellist:
+            vowels += 1
+    print(f"word has {vowels} vowels")
+
 ShowMM()
 while True:
     mmselect = input("Please select an option")
