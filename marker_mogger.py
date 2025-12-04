@@ -13,15 +13,19 @@ class Program:
         """Define variables to be used elsewhere
         """
         self.students = ["Jude", "Josh", "Tom"]
+        self.marking_schema = ["Overall performance", "General understanding", "Contribution level", "Lab completion", "Punctuality", "Engagement", "Further study level"]
 
     def selection(self, title, options, map_dict):
         """Allows for a map to be inputted to call functions with their parameters
         Args:
-            map (dict): a dict of dicts that contains a function and parameter tuple
+            title (string): title of selection
+            options (array): string of options
+            map_dict (dict): a dict of dicts that contains a function and parameter tuple
         Returns:
             function: a function with their parameter
         """
-        print(f"--- {title}")
+        if title:
+            print(f"--- {title}")
         for n in range(len(options)):
             print(f"-- {n+1}. {options[n]}")
         while True:
@@ -44,33 +48,45 @@ class Program:
     def marking(self):
         """Begins Marking Process
         """
+        marking_title = False
+        marking_options = self.marking_schema
+        marking_function_map = {
+        }
         for student in self.students:
             print(f"You are now marking {student}")
+            program_run.selection(marking_title, marking_options, marking_function_map)
+
+class Map:
+    
+    def __init__(self, title, options, function_map):
+        self.title = title
+        self.options = options
+        self.function_map = function_map
+
+class MapLibrary:
+    def __init__(self):
+        self.mark = Map("Student Editing", 
+            ["Mark","Add Students from CSV","Remove students","Rearrange Students"], 
+            {"1" : {
+                program_run.marking : None,
+            }})
+
+        self.student = Map("Student Menu",
+            ["Add Students in input", "Add Students from CSV", "Remove students", "Rearrange Students"],
+            {})
+
+        self.main = Map("Automated Marker",
+            ["Edit Students", "Begin Marking", "Edit marking scheme elements"],
+            {
+                "1" : {
+                program_run.selection : [self.student.title, self.student.options, self.student.function_map]
+                },
+                "2" : {
+                program_run.selection : [self.mark.title, self.mark.options, self.mark.function_map]
+                }
+            }
+            )
 
 program_run = Program()
-
-mark_title = "Student Editing"
-mark_options = ["Mark","Add Students from CSV","Remove students","Rearrange Students"]
-mark_function_map = {
-
-}
-
-student_title = "Student Menu"
-student_options = ["Add Students in input", "Add Students from CSV", "Remove students", "Rearrange Students"]
-student_function_map = {
-
-}
-
-main_title = "Automated Marker"
-main_options = ["Edit Students", "Begin Marking", "Edit marking scheme elements"]
-main_function_map = {
-    "1" : {
-        program_run.selection : [student_title, student_options, student_function_map]
-        },
-    "2" : {
-        program_run.selection : [mark_title, mark_options, mark_function_map]
-    }
-}
-
-program_run.selection(main_title, main_options, main_function_map)
-
+Lib = MapLibrary()
+program_run.selection(Lib.main.title, Lib.main.options, Lib.main.function_map)
