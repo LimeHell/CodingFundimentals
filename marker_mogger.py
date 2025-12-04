@@ -68,7 +68,7 @@ main_function_map = {
         program_run.selection : [student_title, student_options, student_function_map]
         },
     "2" : {
-        program_run.selection : mark_function_map
+        program_run.selection : [mark_title, mark_options, mark_function_map]
     }
 }
 
